@@ -1,0 +1,138 @@
+<html>
+
+<head>
+  <title>
+    click
+  </title>
+
+</head>
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+</style>
+
+<body>
+
+  <table>
+    <tr>
+      <td>
+        <script>
+          function myFunction() {
+            document.getElementById("hello").innerHTML = "Hello";
+          }
+        </script>
+        <button onclick="myFunction()" id="hello">Click me</button>
+      </td>
+      <td>
+        <script>
+          function myFunction1() {
+            document.getElementById("hello1").innerHTML = "Hello";
+          }
+        </script>
+        <button ondblclick="myFunction1()" id="hello1">dblClick</button>
+      </td>
+
+      <td>
+        <script>
+          function mouseDown() {
+            document.getElementById("myP").style.color = "red";
+          }
+
+          function mouseUp() {
+            document.getElementById("myP").style.color = "blue";
+          }
+        </script>
+        <button onmousedown="mouseDown()" id="myP" onmouseup="mouseUp()" id="myP">mDown</button>
+      </td>
+      <td>
+        <script>
+          function mouseEnter() {
+            document.getElementById("mEnter").style.height = "64px";
+          }
+
+          function mouseLeave() {
+            document.getElementById("mEnter").style.height = "32px";
+          }
+        </script>
+        <button onmouseenter="mouseEnter()" id="mEnter" onmouseleave="mouseLeave" id="mEnter">mEnter</button>
+      </td>
+      <td>
+        <script>
+          function dragStart(event) {
+            event.dataTransfer.setData("Text", event.target.id);
+          }
+
+          function dragging(event) {
+            document.getElementById("demo").innerHTML = "text is being dragged";
+          }
+
+          function allowDrop(event) {
+            event.preventDefault();
+          }
+
+          function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            document.getElementById("demo").innerHTML = "text was dropped";
+          }
+        </script>
+
+        <button ondragstart="dragStart(event)" id="demo" ondrag="dragging(event)" draggable="true"
+          id="dragtarget">Drag</button>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <script>
+          function focusf(x) {
+            x.style.background = "yellow";
+          }
+        </script>
+        <input type="text" onfocus="focusf(this)">
+
+      </td>
+
+      <td>
+        <script>
+          function keydown() {
+            document.getElementById("demo2").innerHTML = "You pressed a key inside the input field";
+          }
+        </script>
+        <input type="text" onkeydown="keydown()"><br>
+        <button id="demo2"></button>
+      </td>
+
+      <td>
+        <script>
+          function selecte() {
+            alert("You selected some text!");
+          }
+        </script>
+        <input type="text" value="Hello world!" onselect="selecte()">
+
+      </td>
+
+      <td>
+        <script>
+          function submitted() {
+            alert("The form was submitted");
+          }
+        </script>
+        <form action="/action_page.php" onsubmit="submitted()">
+          Enter name: <input type="text" name="fname">
+          <input type="submit" value="Submit">
+        </form>
+
+
+
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

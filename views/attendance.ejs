@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    thead{
+        background-color: rgb(171, 118, 221);
+        color: rgb(239, 235, 230);
+    }
+</style>
+<body>
+    
+    <div>
+        <%- include('attendance_component',{p,m}) %>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            
+            <th>id</th>
+            <th>FirstName</th>
+            <th>present</th>
+            <th>percentage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(i=0; i<result.length; i++){ %>
+            <tr>
+                
+                <td><%= result[i].id%></td>
+                <td><%= result[i].FirstName%></td>
+                <td><%= result[i].presentDay%></td>
+                <!-- <td><%= result[i].percentage %></td> -->
+               
+               
+                <% if(m=='december2023'){ %>
+                <td>
+                    <%= parseFloat((result[i].presentDay/31)*100).toFixed(2) %> %
+                </td>
+            <% } %>
+            
+            <% if(m=='january2024'){ %>
+                <td>
+                    <%= parseFloat((result[i].presentDay/31)*100).toFixed(2) %> %
+                </td>
+            <% } %>
+
+            <% if(m=='february2024'){ %>
+                <td>
+                    <%= parseFloat((result[i].presentDay/29)*100).toFixed(2) %> %
+                </td>
+            <% } %>
+        
+        </tr>
+        <% } %>
+    </tbody>
+    </table>
+</body>
+</html>

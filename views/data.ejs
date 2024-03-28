@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/?page=1" method="get">
+        <label for="txtquery">Query: </label>
+        <input type="text" name="txtquery" style="height: 92px; width: 402px;">
+        <input type="submit" value="submit">
+    </form>
+
+
+    <% if(result.length !=0){%>
+        
+        <p>Query: <%=sql%></p>
+    <div>
+        <%-include('./partials/component', {p,lastpage})%>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <% for(let i=0; i<key.length; i++) { %>
+                    <th><%=key[i]%></th>
+                <%}%>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i < result.length; i++){ %>
+                <tr>
+                    <% for(let j=0; j < key.length; j++){ %>
+                        <td><%= result[i][key[j]] %></td>
+                    <%}%>
+                </tr>
+            <%}%>
+        </tbody>
+    </table>
+    <%}%>
+
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 90%;
+
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: blanchedalmond;
+            padding: 10px 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+
+                <th rowspan="2">id</th>
+                <th rowspan="2">FirstName</th>
+                <th colspan="2">terminal</th>
+                <th colspan="2">prelim</th>
+                <th colspan="2">final</th>
+                <th rowspan="2">Total</th>
+                <th rowspan="2">details</th>
+            </tr>
+
+            <tr>
+                
+                <th>theory</th>
+                <th>practical</th>
+                
+                <th>theory</th>
+                <th>practical</th>
+                
+                <th>theory</th>
+                <th>practical</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% for(let i=0; i < result.length; i+=3 ){ %>
+                <tr>
+
+                    <td>
+                        <%= result[i].id%>
+                    </td>
+                    <td>
+                        <%= result[i].FirstName%>
+                    </td>
+                    <% for(let j=i; j < i+3; j++){ %>
+                        <% if(result[j].id==result[i].id){ %>
+                            <td>
+                                <%= result[j].theory %>
+                            </td>
+                            <td>
+                                <%= result[j].practical %>
+                            </td>
+                            <% } %>
+                                <% } %>
+
+                            <td>
+                                <%= Number(result[i].practical) + Number(result[i].theory)
+                                 + Number(result[i+1].practical) + Number(result[i+1].theory)
+                                 + Number(result[i+2].practical) + Number(result[i+2].theory) %>
+                            </td>
+                        <td>
+                            <a href="/view/?id=<%=result[i].id%>" target="_blank">all detail</a>
+                        </td>
+                        
+                            </tr>
+                        <% } %>
+        </tbody>
+
+
+    </table>
+
+</body>
+
+</html>

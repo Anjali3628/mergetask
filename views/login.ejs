@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="msg"></div>
+    <form action="/login" method="post" name="myform" id="myform">
+        <span id="loginerr"></span><br>
+
+        <h4>Login</h4>
+        <label for="email">E-mail</label>
+        <input type="text" id="email" name="email"><br><br>
+
+        <label for="password">password</label>
+        <input type="text" name="password" id="password"><br><br>
+
+        <label for="login"></label>
+        <input type="button" id="login" name="login" value="login" onclick="logindata()">
+
+        <a href="/forgotpass">Forgot password</a>
+    </form>
+    <div id="welcome">
+
+    </div>
+
+    <script>
+        async function logindata() {
+            let formdata = document.getElementById("myform");
+            let data = new FormData(formdata);
+            const params = new URLSearchParams(data);
+            const jobdata = await new Response(params).text();
+            // console.log(typeof (jobdata));
+
+            let data4 = await fetch("http://localhost:3040/login", {
+                method: "POST",
+                headers :{
+                    'Content-type': "application/x-www-form-urlencoded"
+                },
+                body: jobdata
+            })
+            error = await data4.json();
+            if(error.msg === "welcome2") {
+                document.querySelector("#welcome").innerHTML = 'go back <a href="/welcome1">welcome1</a>';
+            }else{
+                document.querySelector("#loginerr").innerHTML = error.msg;
+            }
+        }
+    </script>
+</body>
+</html>

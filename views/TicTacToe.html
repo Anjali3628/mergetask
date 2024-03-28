@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            tr,td{
+                border: 1px solid black;
+            }
+            table{
+                margin-top: 140 px;
+            }
+            body{
+                background-color: blue;
+            }
+            td{
+                width: 100px;
+                height: 100px;
+                border-radius: 25px;
+                background-color: brown;
+                opacity: 0.6;
+                color: aquamarine;
+                text-align: center;
+                font-size: 40px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <script>
+            var sign="O";
+
+            table=document.getElementsByTagName("table");
+            tr=table[0].getElementsByTagName("tr");
+            td=table[0].getElementsByTagName("td");
+
+            console.log(td);
+            for(let i=0; i<td.length; i++){
+                td[i].addEventListener("click",function (){
+                    if(sign=="O"){
+                        if(!td[i].innerHTML){
+                            td[i].innerHTML="X";
+                            sign="X";
+                            result("X");
+                        }
+                    }else{
+                        if(!td[i].innerHTML){
+                            td[i].innerHTML="O";
+                            sign="O";
+                            result("O");
+                        }
+                    }
+                });
+            }
+
+            function result(sign){
+                if((td[0].innerHTML === sign && td[1].innerHTML === sign && td[2].innerHTML === sign) ||
+                (td[3].innerHTML === sign && td[4].innerHTML === sign && td[5].innerHTML === sign) ||
+                (td[6].innerHTML === sign && td[7].innerHTML === sign && td[8].innerHTML === sign) ||
+                (td[0].innerHTML === sign && td[3].innerHTML === sign && td[6].innerHTML === sign) ||
+                (td[1].innerHTML === sign && td[4].innerHTML === sign && td[7].innerHTML === sign) ||
+                (td[2].innerHTML === sign && td[5].innerHTML === sign && td[8].innerHTML === sign) ||
+                (td[0].innerHTML === sign && td[4].innerHTML === sign && td[8].innerHTML === sign) ||
+                (td[2].innerHTML === sign && td[4].innerHTML === sign && td[6].innerHTML === sign) ){
+                if(sign === "X"){
+                    showResult("X");
+                }
+                if(sign === "O"){
+                    showResult("O");
+                }
+                }else{
+                    var check = false;
+                    for(let i=0; i<td.length; i++){
+                        if(!td[i].innerHTML){
+                            check = true
+                        }
+                    }
+                    if(!check){
+                        showResult("draw");
+                    }
+                }
+            }
+            function showResult(sign){
+                name="";
+                if(sign === "X"){
+                    name="win1";
+                }
+                if(sign === "O"){
+                    name="win2";
+                }
+                if(sign == "draw"){
+                    name="draw";
+                }
+                document.getElementsByTagName("body")[0].innerHTML=`<h2 style="margin-top:200px; margin-left:40%">${name}</h2>`;
+
+                const btn=document.createElement("button");
+                btn.innerHTML="again";
+                btn.style.marginLeft="40%";
+                btn.style.fontSize="30px";
+                btn.style.fontFamily="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;";
+                btn.addEventListener("click", function (){
+                    window.Location.reload();
+                });
+                document.getElementsByTagName("body")[0].appendChild(btn);
+            }
+
+        </script>
+    </body>
+</html>

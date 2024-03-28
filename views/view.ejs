@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 90%;
+
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: blanchedalmond;
+            padding: 10px 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h4>id: <%=result[0].id %> </h4>
+        <h4>FirstName: <%=result[0].FirstName %> </h4>
+        <h4>Attendance: </h4>
+    <table>
+    
+
+
+        <tr>
+            <th rowspan="2">sub name</th>
+            <th colspan="2">terminal</th>
+            <th colspan="2">prelim</th>
+            <th colspan="2">final</th>
+            <th rowspan="2">total marks</th>
+        </tr>
+
+        <tr>
+            <th>theory</th>
+            <th>practical</th>
+            <th>theory</th>
+            <th>practical</th>
+            <th>theory</th>
+            <th>practical</th>
+        </tr>
+
+
+        <%for( let i=0;i<result.length; i+=3 ) { %>
+            <tr>
+                <td>
+                    <%=result[i].sub_name%>
+                </td>
+                <% for( let j=i; j < i+3; j++) { %>
+                    <td>
+                        <%=result[j].theory%>
+                    </td>
+                    <td>
+                        <%=result[j].practical%>
+                    </td>
+                    <% } %>
+                        <td>
+                            <%= result[i].theory + result[i].practical + result[i+1].theory + result[i+1].practical +
+                                result[i+2].theory + result[i+2].practical %>
+                        </td>
+            </tr>
+            <% } %>
+            <tr>
+                <%= parseFloat((result2[0].attendance/91)*100).toFixed(2)%> %
+            </tr>
+
+    </table>
+</div>
+</body>
+
+</html>

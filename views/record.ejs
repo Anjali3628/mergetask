@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 90%;
+
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: blanchedalmond;
+            padding: 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="">
+
+        <h1>Submitted Data</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <a
+                            href="/?page=1&select=id&sort=<%= sortcolumn === 'id' && sortorder === 'asc' ? 'desc' : 'asc'%>">id</a>
+                            <% if(sortcolumn === 'id' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'id' && sortorder === 'desc' ){%>
+                       <i class="fa-solid fa-angle-down"></i>
+                       <%}%>
+                    </th>
+                    <th>
+                        <a
+                            href="/?page=1&select=FirstName&sort=<%= sortcolumn === 'FirstName' && sortorder === 'asc' ? 'desc' : 'asc'%>">FirstName</a>
+                            <% if(sortcolumn === 'FirstName' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'FirstName' && sortorder === 'desc' ){%>
+                        <i class="fa-solid fa-angle-down"></i>
+                        <%}%>
+                    </th>
+
+                    <th>
+                        <a
+                            href="/?page=1&select=LastName&sort=<%= sortcolumn === 'LastName' && sortorder === 'asc' ? 'desc' : 'asc'%>">LastName</a>
+                            <% if(sortcolumn === 'LastName' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'LastName' && sortorder === 'desc' ){%>
+                        <i class="fa-solid fa-angle-down"></i>
+                        <%}%>
+                    </th>
+
+                    <th>
+                        <a
+                            href="/?page=1&select=ContactNo&sort=<%= sortcolumn === 'ContactNo' && sortorder === 'asc' ? 'desc' : 'asc'%>">ContactNo</a>
+                            <% if(sortcolumn === 'ContactNo' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'ContactNo' && sortorder === 'desc' ){%>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <%}%>
+                    </th>
+
+                    <th>
+                        <a
+                            href="/?page=1&select=emailID&sort=<%= sortcolumn === 'emailID' && sortorder === 'asc' ? 'desc' : 'asc'%>">emailID</a>
+                            <% if(sortcolumn === 'emailID' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'emailID' && sortorder === 'desc' ){%>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <%}%>
+                    </th>
+
+                    <th>
+                        <a
+                            href="/?page=1&select=address&sort=<%= sortcolumn === 'address' && sortorder === 'asc' ? 'desc' : 'asc'%>">address</a>
+                            <% if(sortcolumn === 'address' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'address' && sortorder === 'desc' ){%>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <%}%>
+                    </th>
+
+                    <th>
+                        <a
+                            href="/?page=1&select=city&sort=<%= sortcolumn === 'city' && sortorder === 'asc' ? 'desc' : 'asc'%>">city</a>
+                            <% if(sortcolumn === 'city' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'city' && sortorder === 'desc' ){%>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <%}%>
+                    </th>
+
+                    <th>
+                        <a
+                            href="/?page=1&select=country&sort=<%= sortcolumn === 'country' && sortorder === 'asc' ? 'desc' : 'asc'%>">country</a>
+                            <% if(sortcolumn === 'country' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'country' && sortorder === 'desc' ){%>
+                        <i class="fa-solid fa-angle-down"></i>
+                        <%}%>
+                    </th>
+
+                    <th>
+                        <a
+                            href="/?page=1&select=TS&sort=<%= sortcolumn === 'TS' && sortorder === 'asc' ? 'desc' : 'asc'%>">TS</a>
+                            <% if(sortcolumn === 'TS' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'TS' && sortorder === 'desc' ){%>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <%}%>
+                    </th>
+
+                    <th>
+                        <a
+                            href="/?page=1&select=DOB&sort=<%= sortcolumn === 'DOB' && sortorder === 'asc' ? 'desc' : 'asc'%>">DOB</a>
+                            <% if(sortcolumn === 'DOB' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'DOB' && sortorder === 'desc' ){%>
+                        <i class="fa-solid fa-angle-down"></i>
+                        <%}%>
+                    </th>
+
+                    <th>
+                        <a
+                            href="/?page=1&select=age&sort=<%= sortcolumn === 'age' && sortorder === 'asc' ? 'desc' : 'asc'%>">age</a>
+                            <% if(sortcolumn === 'age' && sortorder === 'asc' ){%>
+                            <i class="fa-solid fa-angle-up"></i>
+                            <%}%>
+                            <% if(sortcolumn === 'age' && sortorder === 'desc' ){%>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <%}%>
+                    </th>
+
+
+                </tr>
+            </thead>
+            <div>
+                <%- include ('component1',{p,order_by,order})%>
+            </div>
+            <%for(let i=0 ; i < result.length; i ++ ) { %>
+
+
+
+
+                <tr>
+                    <td>
+                        <%= result[i].id %>
+                    </td>
+                    <td>
+                        <%= result[i].FirstName %>
+                    </td>
+                    <td>
+                        <%= result[i].LastName %>
+                    </td>
+                    <td>
+                        <%= result[i].ContactNo %>
+                    </td>
+                    <td>
+                        <%= result[i].emailID %>
+                    </td>
+                    <td>
+                        <%= result[i].address %>
+                    </td>
+                    <td>
+                        <%= result[i].city %>
+                    </td>
+                    <td>
+                        <%= result[i].country %>
+                    </td>
+                    <td>
+                        <%= result[i].TS %>
+                    </td>
+                    <td>
+                        <%= result[i].DOB %>
+                    </td>
+                    <td>
+                        <%= result[i].age %>
+                    </td>
+
+                </tr>
+                <% } %>
+    </form>
+
+    </table>
+
+</body>
+
+</html>

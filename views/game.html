@@ -1,0 +1,139 @@
+<html>
+
+<head>
+    <title>game</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: auto;
+            height: 400px;
+            width: 400px;
+            background-color: rgb(194, 215, 229);
+        }
+
+        td {
+            border: 1px solid black;
+
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #time {
+            text-align: end;
+        }
+    </style>
+</head>
+
+<body onload="box()">
+    <p> Anjali Patel || 24DEV096 || Date:02/02/2024</p>
+    <h3>Score:<span id="score"></span></h3>
+    <h3 id="time">
+        <span id="count"></span>
+    </h3>
+    
+    <table>
+        <tr>
+            <td>
+
+            </td>
+
+            <td>
+
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+
+            </td>
+
+            <td>
+
+            </td>
+        </tr>
+    </table>
+
+
+
+    <script>
+        var count = 15;
+        timer = setInterval(function () {
+            if (count <= 0) {
+                clearInterval(timer);
+                document.getElementById("time").innerHTML = "finish";
+                document.getElementsByTagName("body")[0].innerHTML = `<h2 style="margin: 300px 0 0 500px;">Score is: ${value} </h2>`
+                const button = document.createElement("button");
+                button.innerHTML = "Play";
+                button.style.fontSize = "20px"
+                button.style.margin = "15px 0 0 550px";
+                button.addEventListener("click", function () {
+                    window.location.reload();
+                })
+                document.body.appendChild(button);
+            }
+            else {
+                document.getElementById("count").innerHTML = count + " : Time";
+            }
+            count--;
+        }, 1000)
+        function random_color() {
+            red = Math.floor(Math.random() * (255 + 1));
+            green = Math.floor(Math.random() * (255 + 1));
+            blue = Math.floor(Math.random() * (255 + 1));
+            return { red, green, blue };
+        }
+
+        function box() {
+            table = document.getElementsByTagName("table");
+            tr = table[0].getElementsByTagName("tr");
+            td = table[0].getElementsByTagName("td");
+
+            random_box = Math.floor(Math.random() * (td.length));
+            console.log(random_box);
+
+            var r = random_color().red;
+            var g = random_color().green;
+            var b = random_color().blue;
+
+            for (i = 0; i < td.length; i++) {
+                if (i === random_box) {
+                    td[i].style.backgroundColor = "rgba(" + r + "," + g + "," + b + ",0.5)";
+                } else {
+                    td[i].style.backgroundColor = "rgba(" + r + "," + g + "," + b + ")";
+                    td[i].removeEventListener("click", call);
+
+                }
+            } td[random_box].addEventListener("click", call);
+        }
+        var value = 0;
+        function call() {
+            addColRow();
+            box();
+            value++;
+            document.getElementById("score").innerHTML = value;
+        }
+        function addColRow() {
+            table = document.getElementsByTagName("table")
+            tr = table[0].getElementsByTagName("tr")
+            for (i = 0; i < tr.length; i++) {
+                tr[i].appendChild(document.createElement("td"));
+            }
+
+
+            td = tr[0].getElementsByTagName("td");
+            table[0].appendChild(document.createElement("tr"));
+            for (i = 0; i < td.length; i++) {
+                table[0].lastChild.appendChild(document.createElement("td"));
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

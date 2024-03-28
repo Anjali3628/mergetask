@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>Table</title>
+    </head>
+    <style>
+        table,th,td
+        {
+            border: 1px solid black;
+        }
+        td{
+            height:100px;
+            width:100px;
+        }
+        tr:nth-of-type(odd) td:nth-of-type(odd), tr:nth-of-type(even) td:nth-of-type(even)
+        {
+           background-color: rgb(207, 139, 139);
+        }
+    </style>
+    <body>
+        <h1>Table</h1>
+
+        <div class="button">
+            <div class="column">
+                <label for="coladd">ColAdd</label>
+                <input type="button" id="coladd" name="coladd" value="+" onclick="coladd()">
+                <input type="button" id="coldlt" name="coldlt" value="-" onclick="coldlt()">
+            </div>
+
+            <div class="row">
+                <label for="rowadd">RowAdd</label>
+                <input type="button" id="rowadd" name="rowadd" value="+" onclick="rowadd()">
+                <input type="button" id="rowdlt" name="rowdlt" value="-" onclick="rowdlt()">
+            </div>
+
+        </div>
+        <table id="table">
+            <tr>
+                <td>
+                    Row1
+                </td>
+
+                <td>
+                    Row1
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Row2
+                </td>
+
+                <td>
+                    Row2
+                </td>
+            </tr>
+        </table>
+        
+        <script>
+            function coladd()
+            {
+                let table=document.getElementsByTagName("table")
+                tr=table[0].getElementsByTagName("tr")
+                for(i=0; i<tr.length; i++)
+                {
+                    tr[i].appendChild(document.createElement("td"));
+                }
+            }
+            function coldlt()
+            {
+                let table=document.getElementsByTagName("table")
+                tr=table[0].getElementsByTagName("tr")
+                for(i=0; i<tr.length; i++)
+                {
+                    if(table[0].getElementsByTagName("td").length==4) break;
+                    tr[i].removeChild(tr[i].lastChild);
+                } 
+            }
+            function rowadd()
+            {
+                table=document.getElementsByTagName("table")
+                tr=table[0].getElementsByTagName("tr");
+                td=tr[0].getElementsByTagName("td");
+                table[0].appendChild(document.createElement("tr"));
+                for(i=0; i<td.length; i++)
+                {
+                    table[0].lastChild.appendChild(document.createElement("td"));
+                }
+            }
+            function rowdlt()
+            {
+                table=document.getElementsByTagName("table")
+                tr=table[0].getElementsByTagName("tr")
+                td=tr[0].getElementsByTagName("td");
+                if(tr.length>2)
+                {
+                    table[0].removeChild(table[0].lastChild);
+                }
+            }
+        </script>
+    </body>
+</html>

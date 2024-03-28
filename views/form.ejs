@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        justify-content: center;
+        align-items: center;
+        height:100vh ;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    .form1{
+        background-color: rgb(218, 204, 232);
+        height: 300px;
+        width: 500px;
+        
+    }
+</style>
+
+
+<body>
+    <div class="form1">
+    <form action="/insert" onsubmit="return validForm()" method="post" name="form" id="form">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" value=""><br><br>
+
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" value=""><br><br>
+
+        <label for="contact">Contact No</label>
+        <input type="text" id="contact" name="contact" value=""><br><br>
+
+        <label for="email">E-mail</label>
+        <input type="text" id="email" name="email" value=""><br><br>
+
+        <input type="submit" value="register" name="register">
+    </form>
+</div>
+</body>
+
+</html>
